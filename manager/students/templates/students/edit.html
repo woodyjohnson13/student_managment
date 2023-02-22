@@ -3,31 +3,30 @@
 
 
 {% block content %}
-    <h3 class="text-center m-4">Add Student</h3>
+    <h3 class="text-center m-4">Update Student</h3>
     {% if success %}
-        <div class="alert-success">
-            Student added successfully
+        <div class="alert-success" role="alert">
+            Student updated successfully
             <a href="{% url 'index' %}" class="alert-link">Back to students list</a>
         </div>
-    {%else%}
+    {% else %}
         <div class="row justify-content-center">
             <div class="col-6">
-                <div class="card border-light mb-3">
+                <div class="card bg-ligt mb-3">
                     <div class="card-header">
-                        <i class="fa-solid fa-address-card fa-lg"></i>
-                        Student registration
+                        <i class="fas fa-light fa-comment-pen fa-lg"></i>Update student records
                     </div>
                     <div class="card-body">
-                      <form action="{% url 'add' %}" method="post">
+                      <form method="post" action="">
                         {%csrf_token%}
                         {{form.as_p}}
-                        <button type="submit" class="btn btn-primary">Add Student</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                         <a href="{% url 'index' %}" class="btn btn-secondary">Cancel</a>
                       </form>
                     </div>
                   </div>
             </div>
         </div>
-    {%endif%}
+    {% endif %}
 {%endblock%}
 
